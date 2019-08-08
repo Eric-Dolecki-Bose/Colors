@@ -38,12 +38,15 @@ class ViewController: UIViewController
         
         view_1 = UIView(frame: CGRect(x: 0, y: 100, width: bWidth, height: bWidth))
         view_1.backgroundColor = UIColor.blue
+        view_1.layer.cornerRadius = bWidth / 2
         
         view_2 = UIView(frame: CGRect(x: bWidth, y: 100, width: bWidth, height: bWidth))
         view_2.backgroundColor = UIColor.blue.mixLighter(amount: 0.3)
+        view_2.layer.cornerRadius = bWidth / 2
         
         view_3 = UIView(frame: CGRect(x: bWidth * 2, y: 100, width: bWidth, height: bWidth))
         view_3.backgroundColor = UIColor.blue.mixLighter(amount: 0.3).mixLighter(amount: 0.3)
+        view_3.layer.cornerRadius = bWidth / 2
         
         image_1 = UIImageView(frame: CGRect(x: bWidth * 3, y: 100, width: bWidth, height: bWidth))
         image_1.contentMode = .scaleAspectFill
@@ -63,12 +66,15 @@ class ViewController: UIViewController
 
         view_4 = UIView(frame: CGRect(x: 0, y: bWidth + 100, width: bWidth, height: bWidth))
         view_4.backgroundColor = UIColor.gray
+        view_4.layer.cornerRadius = bWidth / 2
         
         view_5 = UIView(frame: CGRect(x: bWidth, y: bWidth + 100, width: bWidth, height: bWidth))
         view_5.backgroundColor = UIColor.gray.mixDarker(amount: 0.3)
+        view_5.layer.cornerRadius = bWidth / 2
         
         view_6 = UIView(frame: CGRect(x: bWidth * 2, y: bWidth + 100, width: bWidth, height: bWidth))
         view_6.backgroundColor = UIColor.gray.mixDarker(amount: 0.3).mixDarker(amount: 0.3)
+        view_6.layer.cornerRadius = bWidth / 2
         
         let chill = UIImage(named: "chill")
         image_3 = UIImageView(frame: CGRect(x: bWidth * 3, y: bWidth + 100, width: bWidth, height: bWidth))
