@@ -102,6 +102,9 @@ class ViewController: UIViewController
         photoView_5.backgroundColor = myColors?.secondary   // Good for text color too.
         photoView_6.backgroundColor = myColors?.detail      // Good for text color too.
         
+        print("Is chill background light? \(String(describing: myColors!.background.isLight()))")
+        //Is chill background light? true
+        
         bigPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         bigPhoto.image = UIImage(named: "redhead")
         bigPhoto.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
@@ -161,5 +164,23 @@ extension UIColor {
                         green:g1*(1.0-amount)+g2*amount,
                         blue:b1*(1.0-amount)+b2*amount,
                         alpha: alpha1 )
+    }
+    
+    // Added.
+    
+    func isLight() -> Bool {
+        if let colorSpace = self.cgColor.colorSpace {
+            if colorSpace.model == .rgb {
+                guard let components = cgColor.components, components.count > 2 else {return false}
+                let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
+                return (brightness > 0.5)
+            }
+            else {
+                var white : CGFloat = 0.0
+                self.getWhite(&white, alpha: nil)
+                return white >= 0.5
+            }
+        }
+        return false
     }
 }
